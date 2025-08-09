@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق ثلاثي الأبعاد</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <!-- Login Page -->
+    <div id="login-page" class="page active">
+        <h1>مرحباً بكم في التطبيق</h1>
+        <div class="login-form">
+            <input type="email" id="email" placeholder="البريد الإلكتروني">
+            <input type="password" id="password" placeholder="كلمة المرور">
+            <button id="login-btn">تسجيل الدخول</button>
+            <p>أو سجل الدخول باستخدام:</p>
+            <div class="social-login">
+                <button id="google-login">Google</button>
+                <button id="facebook-login">Facebook</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Page -->
+    <div id="main-app-page" class="page">
+        <nav>
+            <button class="nav-btn" data-page="home-page">الرئيسية</button>
+            <button class="nav-btn" data-page="counter-page">العداد</button>
+            <button class="nav-btn" data-page="settings-page">الإعدادات</button>
+        </nav>
+        <main id="app-content">
+            <!-- Home Page Content -->
+            <div id="home-page" class="tab-content active">
+                <h2>الصفحة الرئيسية</h2>
+                <div class="post-creator">
+                    <textarea id="post-text" placeholder="بماذا تفكر؟"></textarea>
+                    <input type="file" id="post-image" accept="image/*">
+                    <button id="create-post-btn">نشر</button>
+                </div>
+                <div id="posts-container"></div>
+            </div>
+
+            <!-- Counter Page Content -->
+            <div id="counter-page" class="tab-content">
+                <h2>صفحة العداد</h2>
+                <div id="counter-wrapper">
+                    <div id="circular-counter">
+                        <span>+5</span>
+                    </div>
+                </div>
+                <button id="activate-counter-btn">تفعيل العداد</button>
+                <p id="counter-status">العداد غير مفعل</p>
+            </div>
+
+            <!-- Settings Page Content -->
+            <div id="settings-page" class="tab-content">
+                <h2>الإعدادات</h2>
+                <div class="user-profile">
+                    <img id="profile-pic" src="https://via.placeholder.com/100" alt="صورة الملف الشخصي">
+                    <p id="user-info">user@example.com</p>
+                </div>
+                <div class="settings-options">
+                    <div class="setting">
+                        <span>الوضع الليلي</span>
+                        <label class="switch">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting">
+                        <p>كود الحساب: <span id="account-code"></span></p>
+                    </div>
+                    <div class="setting">
+                        <p>كود الدعوة: <span id="invite-code"></span></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
