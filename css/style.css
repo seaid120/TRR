@@ -1,0 +1,310 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #18191a;
+    color: #e4e6eb;
+}
+
+body.dark-mode .page,
+body.dark-mode .login-form,
+body.dark-mode nav,
+body.dark-mode .tab-content,
+body.dark-mode .post-creator,
+body.dark-mode .settings-options {
+    background-color: #242526;
+    border-color: #3a3b3c;
+    color: #e4e6eb;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode button {
+    background-color: #3a3b3c;
+    color: #e4e6eb;
+    border: 1px solid #555;
+}
+
+body.dark-mode button:hover {
+    background-color: #4f5051;
+}
+
+
+.page {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.page.active {
+    display: flex;
+}
+
+/* Login Page */
+#login-page h1 {
+    margin-bottom: 20px;
+}
+
+.login-form {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1877f2;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.login-form button:hover {
+    background-color: #166fe5;
+}
+
+.social-login button {
+    width: 48%;
+    background-color: #db4437; /* Google Red */
+}
+
+#facebook-login {
+    background-color: #4267B2; /* Facebook Blue */
+}
+
+/* Main App */
+#main-app-page {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+nav button {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-bottom: 2px solid transparent;
+}
+
+nav button.active {
+    border-bottom: 2px solid #1877f2;
+    color: #1877f2;
+}
+
+#app-content {
+    margin-top: 80px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Counter Page */
+#counter-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+#circular-counter {
+    width: 150px;
+    height: 150px;
+    border: 10px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#circular-counter.activated {
+    border-color: gold;
+    color: gold;
+    transform: scale(1.1);
+}
+
+#activate-counter-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#counter-status {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+
+/* Settings Page */
+.user-profile {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Home Page */
+.post-creator {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.post-creator textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 80px;
+    margin-bottom: 10px;
+}
+
+#posts-container .post {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+}
+
+#posts-container .post img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-top: 10px;
+}
